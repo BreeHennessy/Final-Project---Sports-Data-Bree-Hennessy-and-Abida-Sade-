@@ -1,13 +1,13 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 
-public class SportsDataController 
-{
+public class SportsDataController {
 
     @FXML
     private Button baseballButton;
@@ -16,7 +16,7 @@ public class SportsDataController
     private AnchorPane baseballImage;
 
     @FXML
-    private HBox header;
+    private Label header;
 
     @FXML
     private ImageView image;
@@ -25,21 +25,23 @@ public class SportsDataController
     private Button racingButton;
 
     @FXML
-    private HBox recentDataText;
-
-    @FXML
     private ScrollPane resultsDisplay;
 
     @FXML
-    void baseballInfo(MouseEvent event) 
+    private Label scoreLabel;
+
+    @FXML
+    void changeToBaseball(ActionEvent event) 
     {
-       image = new ImageView(baseball.png)
-       
+      Image baseballImage = new Image("baseball.png");
+      image.setImage(baseballImage);
     }
 
     @FXML
-    void racingInfo(MouseEvent event) 
+    void changeToRacing(ActionEvent event) 
     {
-       image = new ImageView(racecar.jpg)
+      Image racecarImage = new Image("racecar.jpg");
+      image.setImage(racecarImage);
     }
+
 }
