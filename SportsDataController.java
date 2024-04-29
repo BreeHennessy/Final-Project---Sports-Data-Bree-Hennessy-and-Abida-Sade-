@@ -8,6 +8,17 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.paint.Color;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
+
+import java.util.Scanner;
+import java.net.http.HttpClient;
+import java.net.URL;
+import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class SportsDataController {
 
@@ -18,19 +29,25 @@ public class SportsDataController {
     private AnchorPane baseballImage;
 
     @FXML
+    private ImageView bottomImage;
+
+    @FXML
     private Label header;
 
     @FXML
-    private ImageView image;
-    
+    private VBox holdResults;
+
     @FXML
-    private ImageView bottomImage;
+    private ImageView image;
+
+    @FXML
+    private HBox labelsBox;
 
     @FXML
     private Button racingButton;
 
     @FXML
-    private ScrollPane resultsDisplay;
+    private Label resultsDisplay;
 
     @FXML
     private Label scoreLabel;
@@ -53,7 +70,7 @@ public class SportsDataController {
     }
 
     @FXML
-    void changeToRacing(ActionEvent event) 
+    void changeToRacing(ActionEvent event) throws Exception
     {
       Image racecarImage = new Image("racecar.jpg");
       image.setImage(racecarImage);
@@ -67,6 +84,22 @@ public class SportsDataController {
       racingButton.setStyle("-fx-background-color: #ffece8; ");
       baseballButton.setStyle("-fx-background-color: null; ");
       baseballButton.setStyle("-fx-border-color: blue; "); 
+      
+      
+      /**Attempt at formatting the racing API*/
+      URL racingUrl = new URL("https://ergast.com/api/f1/current.json");
+      Scanner s = new Scanner(racingUrl.openStream());
+      String racingData = s.nextLine();
+      Gson racingGson = new Gson();
+      RecentRacing recentRacing = racingGson.fromJson(racingData, RecentRacing.class);
+      
+      for(int i=0; i<100; i++)
+      {
+         //Label raceNameLabel = new Label(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
+         resultsDisplay.setText(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
+        // resultsDisplay.setText(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
+      }
+      
     }
 
 }
