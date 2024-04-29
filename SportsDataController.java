@@ -32,10 +32,13 @@ public class SportsDataController {
     private ImageView bottomImage;
 
     @FXML
+    private VBox datesBox;
+
+    @FXML
     private Label header;
 
     @FXML
-    private VBox holdResults;
+    private HBox holdResults;
 
     @FXML
     private ImageView image;
@@ -44,13 +47,23 @@ public class SportsDataController {
     private HBox labelsBox;
 
     @FXML
+    private VBox locationsBox;
+
+    @FXML
+    private VBox pointsBox;
+
+    @FXML
     private Button racingButton;
 
     @FXML
-    private Label resultsDisplay;
+    private Label scoreLabel;
 
     @FXML
-    private Label scoreLabel;
+    private VBox timeBox;
+
+    @FXML
+    private VBox winnersBox;
+
 
     @FXML
     void changeToBaseball(ActionEvent event) 
@@ -93,11 +106,19 @@ public class SportsDataController {
       Gson racingGson = new Gson();
       RecentRacing recentRacing = racingGson.fromJson(racingData, RecentRacing.class);
       
-      for(int i=0; i<100; i++)
+      locationsBox.getChildren().clear();
+      datesBox.getChildren().clear();
+      pointsBox.getChildren().clear();
+      winnersBox.getChildren().clear();
+      timeBox.getChildren().clear();
+      for(int i=0; i<10; i++)
       {
-         //Label raceNameLabel = new Label(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
-         resultsDisplay.setText(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
-        // resultsDisplay.setText(String.format(recentRacing.MRData.RaceTable.Races[i].raceName));
+         locationsBox.getChildren().add(new Label(String.format(recentRacing.MRData.RaceTable.Races[i].raceName)));
+         datesBox.getChildren().add(new Label(String.format(recentRacing.MRData.RaceTable.Races[i].date)));
+         /** These next three say "Cannot load from object array because "MRData.RaceTable.Races[i].Results" is null." Not sure how to fix. Can't figure out why it's null. */
+       //  pointsBox.getChildren().add(new Label(String.format(Integer.toString(recentRacing.MRData.RaceTable.Races[i].Results[i].points))));
+       //  winnersBox.getChildren().add(new Label(String.format(recentRacing.MRData.RaceTable.Races[i].Results[i].Driver.givenName + " " + recentRacing.MRData.RaceTable.Races[i].Results[i].Driver.familyName)));
+       //  timeBox.getChildren().add(new Label(String.format(recentRacing.MRData.RaceTable.Races[i].Results[i].Time.time)));
       }
       
     }

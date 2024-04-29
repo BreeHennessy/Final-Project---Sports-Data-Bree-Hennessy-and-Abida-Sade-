@@ -60,12 +60,12 @@
                   </RadialGradient>
                </textFill>
             </Button>
-            <HBox fx:id="labelsBox" layoutX="69.0" layoutY="103.0" prefHeight="26.0" prefWidth="448.0">
+            <HBox fx:id="labelsBox" layoutX="30.0" layoutY="81.0" prefHeight="26.0" prefWidth="550.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="98.0" text="Location" />
+                  <Label prefHeight="18.0" prefWidth="139.0" text="Location" />
                   <Label prefHeight="18.0" prefWidth="90.0" text="Date" />
-                  <Label prefHeight="18.0" prefWidth="90.0" text="Points" />
-                  <Label prefHeight="18.0" prefWidth="90.0" text="Winner" />
+                  <Label prefHeight="18.0" prefWidth="63.0" text="Points" />
+                  <Label prefHeight="18.0" prefWidth="137.0" text="Winner" />
                   <Label prefHeight="18.0" prefWidth="80.0" text="Time" />
                </children>
             </HBox>
@@ -75,18 +75,22 @@
                   <Font name="Calibri Light Italic" size="35.0" />
                </font>
             </Label>
-            <Label fx:id="scoreLabel" layoutX="69.0" layoutY="81.0" prefHeight="18.0" prefWidth="108.0" text="Recent scores:" underline="true">
+            <Label fx:id="scoreLabel" layoutX="30.0" layoutY="59.0" prefHeight="18.0" prefWidth="108.0" text="Recent scores:" underline="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <ImageView fx:id="bottomImage" fitHeight="27.0" fitWidth="599.0" layoutX="-1.0" layoutY="298.0" pickOnBounds="true" />
-            <VBox fx:id="holdResults" layoutX="69.0" layoutY="148.0" prefHeight="175.0" prefWidth="507.0">
+            <Line endX="416.800048828125" endY="-2.7427444458007812" layoutX="167.0" layoutY="110.0" startX="-135.94276428222656" startY="-2.7427477836608887" />
+            <HBox fx:id="holdResults" layoutX="27.0" layoutY="108.0" prefHeight="196.0" prefWidth="544.0">
                <children>
-                  <Label fx:id="resultsDisplay" prefHeight="187.0" prefWidth="534.0" />
+                  <VBox fx:id="locationsBox" prefHeight="196.0" prefWidth="140.0" />
+                  <VBox fx:id="datesBox" prefHeight="196.0" prefWidth="88.0" />
+                  <VBox fx:id="pointsBox" prefHeight="196.0" prefWidth="62.0" />
+                  <VBox fx:id="winnersBox" prefHeight="196.0" prefWidth="141.0" />
+                  <VBox fx:id="timeBox" prefHeight="196.0" prefWidth="112.0" />
                </children>
-            </VBox>
-            <Line endX="370.1501770019531" endY="-2.7427470684051514" layoutX="203.0" layoutY="132.0" startX="-135.94276428222656" startY="-2.7427477836608887" />
+            </HBox>
          </children></AnchorPane>
   </content>
 </TitledPane>
