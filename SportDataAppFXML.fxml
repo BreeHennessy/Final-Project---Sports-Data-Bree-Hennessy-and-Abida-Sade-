@@ -66,7 +66,7 @@
                   <Label prefHeight="18.0" prefWidth="90.0" text="Date" />
                   <Label prefHeight="18.0" prefWidth="100.0" text="Winner" />
                   <Label prefHeight="18.0" prefWidth="80.0" text="Points" />
-                  <Label prefHeight="18.0" prefWidth="120.0" text="Time" />
+                  <Label prefHeight="18.0" prefWidth="139.0" text="Time" />
                   <Label prefHeight="18.0" prefWidth="100.0" text="Home" />
                   <Label prefHeight="18.0" prefWidth="100.0" text="Away" /> 
                   <Label prefHeight="18.0" prefWidth="90.0" text="Score" />    
