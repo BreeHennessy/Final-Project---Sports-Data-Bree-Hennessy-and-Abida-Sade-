@@ -1,35 +1,33 @@
-import javafx.event.ActionEvent;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.scene.paint.Color;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.event.ActionEvent;                 // Imports the ActionEvent class from the javafx.event package.
+import javafx.fxml.FXML;                         // FXML annotattion and inserting its elements.
+import javafx.scene.control.Button;             // To create buttons.
+import javafx.scene.control.Label;             // For displaying text.
+import javafx.scene.control.ScrollPane;        // For adding scrollable panes .
+import javafx.scene.image.ImageView;           // To display images.
+import javafx.scene.image.Image;               // For loading images.
+import javafx.scene.layout.AnchorPane;         // Allows layout.
+import javafx.scene.text.Font;                 // Sets text fonts.
+import javafx.scene.paint.Color;              // Defines colors.
+import javafx.scene.layout.HBox;              // Horizontal layout.
+import javafx.scene.layout.VBox;             //  Vertical layout.
 
-import java.net.URI;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.net.URI;                         // For handling Uniform Resource Identifiers.
+import java.net.http.HttpRequest;            //  Makes HTTP requests.
+import java.net.http.HttpResponse;           // Handles HTTP responses.
 
+import java.util.Scanner;                     // Scanner class to read keyboard input in Java.
+import java.net.http.HttpClient;              // Sends HTTP requests.
+import java.net.URL;                         // For Uniform Resource Locators.
+import java.io.IOException;                  // Imports the IOException class for handling input/output errors.
+import java.net.MalformedURLException;      // Imports the MalformedURLException class for handling malformed URLs.
 
-import java.util.Scanner;
-import java.net.http.HttpClient;
-import java.net.URL;
-import java.io.IOException;
-import java.net.MalformedURLException;
+import com.google.gson.Gson;                 // Imports the Gson class for JSON.
+import com.google.gson.GsonBuilder;         // Imports the GsonBuilder class for building Gson instance.
 
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
+// Pulls style of application from FXML file.
 public class SportsDataController 
 {
-
+    
     @FXML
     private Button baseballButton;
 
@@ -75,40 +73,35 @@ public class SportsDataController
     @FXML
     private VBox scoreBox;
     
-//  @FXML
-//     private VBox venueBox;
-//     
-//     @FXML
-//     private VBox dateBox;
-//     
-       @FXML
-       private VBox homeBox;
-//     
-       @FXML
-       private VBox awayBox;
+    @FXML
+    private VBox homeBox;   
+    
+    @FXML
+    private VBox awayBox;
 
 
     @FXML
+
+    // Buttons, Images, and Fonts for Baseball data method
+
     void changeToBaseball(ActionEvent event) 
     {
+      // Image
       Image baseballImage = new Image("baseball.png");
       image.setImage(baseballImage);
       Image grass = new Image("grass.png");
       bottomImage.setImage(grass);
-      
+
+      // Font
       header.setText("BASEBALL");
       header.setFont(new Font("Bookman Old Style", 35));
       header.setTextFill(Color.rgb(2, 153, 9));
-      
+
+        // Button Style
       baseballButton.setStyle("-fx-background-color: #e8fdff; ");
       racingButton.setStyle("-fx-background-color: null; ");
       racingButton.setStyle("-fx-border-color: red; ");    
-      
-      locationsBox.getChildren().clear();
-      datesBox.getChildren().clear();
-      pointsBox.getChildren().clear();
-      winnersBox.getChildren().clear();
-      timeBox.getChildren().clear();
+
       
     // Pulling baseball data 
     try 
@@ -117,26 +110,22 @@ public class SportsDataController
       Scanner sc = new Scanner(baseballUrl.openStream());
       String baseballData = sc.nextLine();
       Gson bballGson = new Gson();
-      // *******************
-      // Changes made here!
-      // *******************
       GameInfo game = bballGson.fromJson(baseballData, GameInfo.class);
       System.out.println(baseballData);
- 
+
+      // Header display
       homeBox.getChildren().clear();
       awayBox.getChildren().clear();
-       
-//       dateBox.getChildren().clear();
-//       scoreBox.getChildren().clear();
-//       venueBox.getChildren().clear();
- //   
-   
+      
+    
+   // Loop to display 10 teams that play for the day called
   for(int i=0; i<10; i++) 
       {
          homeBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.name)));
          awayBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.name)));
       }
-   
+
+      // Scanner is closed.
       sc.close();
     } 
     catch (MalformedURLException e) 
@@ -150,18 +139,22 @@ public class SportsDataController
       
     }
 
+    // Buttons, Images, and Fonts for Racecar data method
     @FXML
     void changeToRacing(ActionEvent event) throws Exception
     {
+      // Car images
       Image racecarImage = new Image("racecar.jpg");
       image.setImage(racecarImage);
       Image checkers = new Image("checkers.jpg");
       bottomImage.setImage(checkers);
-      
+
+      // Label Heading
       header.setText("RACING");
       header.setFont(new Font("Eras Bold ITC", 35));
       header.setTextFill(Color.rgb(191, 18, 2));
-      
+
+      // Color Styling
       racingButton.setStyle("-fx-background-color: #ffece8; ");
       baseballButton.setStyle("-fx-background-color: null; ");
       baseballButton.setStyle("-fx-border-color: blue; "); 
@@ -173,12 +166,15 @@ public class SportsDataController
       String racingData = s.nextLine();
       Gson racingGson = new Gson();
       RecentRacing recentRacing = racingGson.fromJson(racingData, RecentRacing.class);
-      
+
+      // Header for data that is called
       locationsBox.getChildren().clear();
       datesBox.getChildren().clear();
       pointsBox.getChildren().clear();
       winnersBox.getChildren().clear();
       timeBox.getChildren().clear();
+
+      // Loop that will use arrays to display information requested
       for(int i=0; i<10; i++)
       {
          locationsBox.getChildren().add(new Label(String.format(recentRacing.MRData.RaceTable.Races[i].raceName)));
