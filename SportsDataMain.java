@@ -11,14 +11,19 @@ public class SportsDataMain extends Application
    public static void main(String[] args)
    {
       launch(args);
-   }
+   }  
    
    @Override
    public void start(Stage stage) throws Exception
    {
       Parent root = FXMLLoader.load(getClass().getResource("SportDataAppFXML.fxml"));
       Scene scene = new Scene(root);
+      stage.setTitle("Sportified");
       stage.setScene(scene);
       stage.show();
+   }
+   public void stop()
+   {
+      System.out.println("App is being called to stop");
    }
 }
