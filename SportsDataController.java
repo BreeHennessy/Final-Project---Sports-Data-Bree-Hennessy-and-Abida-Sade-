@@ -116,6 +116,7 @@ public class SportsDataController
       // Header display
       homeBox.getChildren().clear();
       awayBox.getChildren().clear();
+      //scoreBox.getChildren().clear();  
       
     
    // Loop to display 10 teams that play for the day called
@@ -123,6 +124,9 @@ public class SportsDataController
       {
          homeBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.name)));
          awayBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.name)));
+        // scoreBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.score)));
+        // scoreBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.score)));
+
       }
 
       // Scanner is closed.
