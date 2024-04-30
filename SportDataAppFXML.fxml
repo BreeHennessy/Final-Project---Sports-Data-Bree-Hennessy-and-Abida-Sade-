@@ -67,6 +67,8 @@
                   <Label prefHeight="18.0" prefWidth="63.0" text="Points" />
                   <Label prefHeight="18.0" prefWidth="137.0" text="Winner" />
                   <Label prefHeight="18.0" prefWidth="80.0" text="Time" />
+                  <Label prefHeight="18.0" prefWidth="139.0" text="Home" />
+                  <Label prefHeight="18.0" prefWidth="90.0" text="Away" />                  
                </children>
             </HBox>
             <ImageView id="baseballImage" fx:id="image" fitHeight="67.0" fitWidth="85.0" layoutX="524.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
@@ -89,6 +91,9 @@
                   <VBox fx:id="pointsBox" prefHeight="196.0" prefWidth="62.0" />
                   <VBox fx:id="winnersBox" prefHeight="196.0" prefWidth="141.0" />
                   <VBox fx:id="timeBox" prefHeight="196.0" prefWidth="112.0" />
+                  <VBox fx:id="homeBox" prefHeight="196.0" prefWidth="112.0" />
+                  <VBox fx:id="awayBox" prefHeight="196.0" prefWidth="112.0" />
+
                </children>
             </HBox>
          </children></AnchorPane>
