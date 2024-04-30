@@ -62,13 +62,14 @@
             </Button>
             <HBox fx:id="labelsBox" layoutX="30.0" layoutY="81.0" prefHeight="26.0" prefWidth="550.0">
                <children>
-                  <Label prefHeight="18.0" prefWidth="139.0" text="Location" />
+                 <Label prefHeight="18.0" prefWidth="139.0" text="Location" />
                   <Label prefHeight="18.0" prefWidth="90.0" text="Date" />
-                  <Label prefHeight="18.0" prefWidth="63.0" text="Points" />
-                  <Label prefHeight="18.0" prefWidth="137.0" text="Winner" />
-                  <Label prefHeight="18.0" prefWidth="80.0" text="Time" />
-                  <Label prefHeight="18.0" prefWidth="139.0" text="Home" />
-                  <Label prefHeight="18.0" prefWidth="90.0" text="Away" />     
+                  <Label prefHeight="18.0" prefWidth="100.0" text="Winner" />
+                  <Label prefHeight="18.0" prefWidth="80.0" text="Points" />
+                  <Label prefHeight="18.0" prefWidth="120.0" text="Time" />
+                  <Label prefHeight="18.0" prefWidth="100.0" text="Home" />
+                  <Label prefHeight="18.0" prefWidth="100.0" text="Away" /> 
+                  <Label prefHeight="18.0" prefWidth="90.0" text="Score" />    
                </children>
             </HBox>
             <ImageView id="baseballImage" fx:id="image" fitHeight="67.0" fitWidth="85.0" layoutX="524.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
@@ -77,7 +78,7 @@
                   <Font name="Calibri Light Italic" size="35.0" />
                </font>
             </Label>
-            <Label fx:id="scoreLabel" layoutX="30.0" layoutY="59.0" prefHeight="18.0" prefWidth="108.0" text="Recent scores:" underline="true">
+            <Label fx:id="scoreLabel" layoutX="30.0" layoutY="59.0" prefHeight="18.0" prefWidth="115.0" text="Today's Update:" underline="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
