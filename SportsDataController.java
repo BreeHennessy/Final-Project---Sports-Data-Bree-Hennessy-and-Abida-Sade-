@@ -104,6 +104,12 @@ public class SportsDataController
       racingButton.setStyle("-fx-background-color: null; ");
       racingButton.setStyle("-fx-border-color: red; ");    
       
+      locationsBox.getChildren().clear();
+      datesBox.getChildren().clear();
+      pointsBox.getChildren().clear();
+      winnersBox.getChildren().clear();
+      timeBox.getChildren().clear();
+      
     // Pulling baseball data 
     try 
     {
@@ -127,8 +133,8 @@ public class SportsDataController
    
   for(int i=0; i<10; i++) 
       {
-         homeBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.team.name)));
-         awayBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.team.name)));
+         homeBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.name)));
+         awayBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.name)));
       }
    
       sc.close();
