@@ -102,6 +102,12 @@ public class SportsDataController
       racingButton.setStyle("-fx-background-color: null; ");
       racingButton.setStyle("-fx-border-color: red; ");    
 
+      // Header display
+      locationsBox.getChildren().clear();
+      datesBox.getChildren().clear();
+      pointsBox.getChildren().clear();
+      winnersBox.getChildren().clear();
+      timeBox.getChildren().clear();
       
     // Pulling baseball data 
     try 
@@ -112,24 +118,24 @@ public class SportsDataController
       Gson bballGson = new Gson();
       GameInfo game = bballGson.fromJson(baseballData, GameInfo.class);
       System.out.println(baseballData);
-
-      // Header display
+      
+       // Header display
       homeBox.getChildren().clear();
       awayBox.getChildren().clear();
       //scoreBox.getChildren().clear();  
+
       
-    
-   // Loop to display 10 teams that play for the day called
+  
+ // Loop to display 10 teams that play for the day called
   for(int i=0; i<10; i++) 
       {
          homeBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.name)));
          awayBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.name)));
-        // scoreBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.score)));
+         // scoreBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.home.score)));
         // scoreBox.getChildren().add(new Label(String.format(game.dates[0].games[i].teams.away.score)));
-
       }
-
-      // Scanner is closed.
+      // Scanner closed.
+      
       sc.close();
     } 
     catch (MalformedURLException e) 
@@ -152,12 +158,12 @@ public class SportsDataController
       image.setImage(racecarImage);
       Image checkers = new Image("checkers.jpg");
       bottomImage.setImage(checkers);
-
+      
       // Label Heading
       header.setText("RACING");
       header.setFont(new Font("Eras Bold ITC", 35));
       header.setTextFill(Color.rgb(191, 18, 2));
-
+      
       // Color Styling
       racingButton.setStyle("-fx-background-color: #ffece8; ");
       baseballButton.setStyle("-fx-background-color: null; ");
@@ -170,14 +176,14 @@ public class SportsDataController
       String racingData = s.nextLine();
       Gson racingGson = new Gson();
       RecentRacing recentRacing = racingGson.fromJson(racingData, RecentRacing.class);
-
+      
       // Header for data that is called
       locationsBox.getChildren().clear();
       datesBox.getChildren().clear();
       pointsBox.getChildren().clear();
       winnersBox.getChildren().clear();
       timeBox.getChildren().clear();
-
+      
       // Loop that will use arrays to display information requested
       for(int i=0; i<10; i++)
       {
